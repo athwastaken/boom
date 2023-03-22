@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="boomEngine">
+      <UniqueIdentifier>{285CBA23-1414-FC70-7D1B-D5CC69F29661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="boomEngine\core">
+      <UniqueIdentifier>{A0E56C83-0C71-DA47-1582-5D3C818C3648}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="boomEngine\events">
+      <UniqueIdentifier>{2CDF5E17-98F5-5CAD-E16C-E8CE4DC22D35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="boomEngine\imgui">
+      <UniqueIdentifier>{92E774F1-7EE0-9343-A712-79C8936A734F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform">
+      <UniqueIdentifier>{4A63C33C-3630-1E48-5F49-0CF04B7553D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\opengl">
+      <UniqueIdentifier>{9E4DBFD0-0AD9-2C95-13EA-AF897FF48895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\windows">
+      <UniqueIdentifier>{A44FC440-9048-E392-B97A-C817A5D2C29E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\bmpch.h" />
+    <ClInclude Include="src\boomEngine.h" />
+    <ClInclude Include="src\boomEngine\core\app.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\core\base.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\core\entryPoint.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\core\layer.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\core\layerStack.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\core\log.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\core\window.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\events\appEvent.h">
+      <Filter>boomEngine\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\events\eventClass.h">
+      <Filter>boomEngine\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\events\keyEvent.h">
+      <Filter>boomEngine\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\events\mouseEvent.h">
+      <Filter>boomEngine\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\imgui\imguiLayer.h">
+      <Filter>boomEngine\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\opengl\imguiOpenGLRenderer.h">
+      <Filter>platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\opengl\imguiOpenGLRendererLoader.h">
+      <Filter>platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\windows\windowsWindow.h">
+      <Filter>platform\windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\bmpch.cpp" />
+    <ClCompile Include="src\boomEngine\core\app.cpp">
+      <Filter>boomEngine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\core\layer.cpp">
+      <Filter>boomEngine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\core\layerStack.cpp">
+      <Filter>boomEngine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\core\log.cpp">
+      <Filter>boomEngine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\imgui\imguiLayer.cpp">
+      <Filter>boomEngine\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\opengl\imguiOpenGLRenderer.cpp">
+      <Filter>platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\windows\windowsWindow.cpp">
+      <Filter>platform\windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

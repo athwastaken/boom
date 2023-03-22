@@ -1,0 +1,12 @@
+[submodule "boom/vendor/spdlog"]
+	path = boom/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "boomEngine/vendor/spdlog"]
+	path = boomEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "boomEngine/vendor/glfw"]
+	path = boomEngine/vendor/glfw
+	url = https://github.com/glfw/glfw
+[submodule "boomEngine/vendor/imgui"]
+	path = boomEngine/vendor/imgui
+	url = https://github.com/ocornut/imgui
