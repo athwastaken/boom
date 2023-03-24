@@ -10,3 +10,6 @@
 [submodule "boomEngine/vendor/imgui"]
 	path = boomEngine/vendor/imgui
 	url = https://github.com/ocornut/imgui
+[submodule "boomEngine/vendor/glm"]
+	path = boomEngine/vendor/glm
+	url = https://github.com/g-truc/glm
