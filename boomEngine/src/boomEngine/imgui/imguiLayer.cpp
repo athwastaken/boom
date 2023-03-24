@@ -64,36 +64,36 @@ namespace bm {
 
 	bool imguiLayer::onMouseButtonPressedEvent(mouseButtonPressedEvent& e) {
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseDown[e.mouseButton()] = true;
+		io.MouseDown[e.getMouseButton()] = true;
 
 		return false;
 	}
 
 	bool imguiLayer::onMouseButtonReleasedEvent(mouseButtonReleasedEvent& e) {
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseDown[e.mouseButton()] = false;
+		io.MouseDown[e.getMouseButton()] = false;
 
 		return false;
 	}
 
 	bool imguiLayer::onMouseMovedEvent(mouseMovedEvent& e) {
 		ImGuiIO& io = ImGui::GetIO();
-		io.MousePos = ImVec2(e.mouseX(), e.mouseY());
+		io.MousePos = ImVec2(e.getMouseX(), e.getMouseY());
 
 		return false;
 	}
 
 	bool imguiLayer::onMouseScrolledEvent(mouseScrolledEvent& e) {
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseWheelH += e.offsetX();
-		io.MouseWheel += e.offsetY();
+		io.MouseWheelH += e.getOffsetX();
+		io.MouseWheel += e.getOffsetY();
 
 		return false;
 	}
 
 	bool imguiLayer::onKeyPressedEvent(keyPressedEvent& e) {
 		ImGuiIO& io = ImGui::GetIO();
-		io.KeysDown[e.keyCode()] = true;
+		io.KeysDown[e.getKeyCode()] = true;
 		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
 		io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
 		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
@@ -104,7 +104,7 @@ namespace bm {
 
 	bool imguiLayer::onKeyTypedEvent(keyTypedEvent& e) {
 		ImGuiIO& io = ImGui::GetIO();
-		int keycode = e.keyCode();
+		int keycode = e.getKeyCode();
 		if (keycode > 0 && keycode < 0x10000) {
 			io.AddInputCharacter((unsigned short)keycode);
 		}
@@ -114,16 +114,16 @@ namespace bm {
 
 	bool imguiLayer::onKeyReleasedEvent(keyReleasedEvent& e) {
 		ImGuiIO& io = ImGui::GetIO();
-		io.KeysDown[e.keyCode()] = false;
+		io.KeysDown[e.getKeyCode()] = false;
 
 		return false;
 	}
 
 	bool imguiLayer::onWindowResizeEvent(windowResizeEvent& e) {
 		ImGuiIO& io = ImGui::GetIO();
-		io.DisplaySize = ImVec2(e.windowWidth(), e.windowHeight());
+		io.DisplaySize = ImVec2(e.getWindowWidth(), e.getWindowHeight());
 		io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
-		glViewport(0, 0, e.windowWidth(), e.windowHeight());
+		glViewport(0, 0, e.getWindowWidth(), e.getWindowHeight());
 
 		return false;
 	}

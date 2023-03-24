@@ -8,8 +8,8 @@ namespace bm {
 		mouseMovedEvent(float posX, float posY)
 			: m_posX(posX), m_posY(posY) {};
 
-		inline float mouseX() const { return m_posX; }
-		inline float mouseY() const { return m_posY; }
+		inline float getMouseX() const { return m_posX; }
+		inline float getMouseY() const { return m_posY; }
 
 		std::string toString() const override {
 			std::stringstream ss;
@@ -28,12 +28,12 @@ namespace bm {
 		mouseScrolledEvent(float offsetX, float offsetY)
 			: m_offsetX(offsetX), m_offsetY(offsetY) {};
 
-		inline float offsetX() const { return m_offsetX; }
-		inline float offsetY() const { return m_offsetY; }
+		inline float getOffsetX() const { return m_offsetX; }
+		inline float getOffsetY() const { return m_offsetY; }
 
 		std::string toString() const override {
 			std::stringstream ss;
-			ss << "mouseScrolledEvent: " << offsetX() << ", " << offsetY();
+			ss << "mouseScrolledEvent: " << getOffsetX() << ", " << getOffsetY();
 			return ss.str();
 		}
 
@@ -45,7 +45,7 @@ namespace bm {
 
 	class BM_API mouseButtonEvent : public eventClass {
 	public:
-		inline int mouseButton() const { return m_button; }
+		inline int getMouseButton() const { return m_button; }
 
 		EVENT_CLASS_CATEGORY(eventCategoryMouseButton | eventCategoryMouse | eventCategoryInput)
 	protected:

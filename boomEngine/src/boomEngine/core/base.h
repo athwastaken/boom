@@ -3,7 +3,7 @@
 #include "bmpch.h"
 
 #ifdef BM_PLATFORM_WINDOWS
-	#ifndef BM_API
+	#ifdef BM_BUILD_DLL
 		#define BM_API __declspec(dllexport)
 	#else
 		#define BM_API __declspec(dllimport)

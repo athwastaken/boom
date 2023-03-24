@@ -26,12 +26,14 @@ namespace bm {
 
 		void run();
 		inline window& getWindow() { return *m_window; }
-		static app& getApp();
+		inline static app& getApp() { return *s_instance; }
 	private:
 		bool m_running = false;
 		bool onWindowClose(windowCloseEvent& e);
 		std::unique_ptr<window> m_window;
 		layerStack m_layerStack;
+
+		static app* s_instance;
 	};
 
 	// to be defined in client 

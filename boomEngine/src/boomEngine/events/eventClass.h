@@ -8,7 +8,7 @@ namespace bm {
 
 	// currently using blocking method
 
-	enum class enumEventType {
+	enum class eventType {
 		none = 0,
 		windowClose, windowResize, windowFocus, windowLostFocus, windowMoved,
 		appTick, appUpdate, appRender,
@@ -17,7 +17,7 @@ namespace bm {
 		mouseButtonPressed, mouseButtonReleased
 	};
 
-	enum enumEventCategory {
+	enum eventCategory {
 		none = 0,
 		eventCategoryApp = BIT(0),
 		eventCategoryInput = BIT(1),
@@ -26,22 +26,22 @@ namespace bm {
 		eventCategoryMouseButton = BIT(4)
 	};
 
-#define EVENT_CLASS_TYPE(type)	static enumEventType staticType() { return enumEventType::##type; }\
-								virtual enumEventType eventType() const override { return staticType(); }\
-								virtual const char* name() const override { return #type; }
+#define EVENT_CLASS_TYPE(type)	static eventType getStaticType() { return eventType::type; }\
+								virtual eventType getEventType() const override { return getStaticType(); }\
+								virtual const char* getName() const override { return #type; }
 
-#define EVENT_CLASS_CATEGORY(category) virtual int categoryFlags() const override { return category; }
+#define EVENT_CLASS_CATEGORY(category) virtual int getCategoryFlags() const override { return category; }
 
 	class BM_API eventClass {
 		friend class eventDispatcher;
 	public:
-		virtual enumEventType eventType() const = 0;
-		virtual const char* name() const = 0;
-		virtual int categoryFlags() const = 0;
-		virtual std::string toString() const { return name(); }
+		virtual eventType getEventType() const = 0;
+		virtual const char* getName() const = 0;
+		virtual int getCategoryFlags() const = 0;
+		virtual std::string toString() const { return getName(); }
 
-		inline bool isInCategory(enumEventCategory category) {
-			return categoryFlags() & category;
+		inline bool isInCategory(eventCategory category) {
+			return getCategoryFlags() & category;
 		}
 		bool m_handled = false;
 	};
@@ -55,7 +55,7 @@ namespace bm {
 		template<typename T>
 
 		bool dispatchEvent(eventFn<T> func) {
-			if (m_event.eventType() == T::staticType()) {
+			if (m_event.getEventType() == T::getStaticType()) {
 				m_event.m_handled = func(*(T*)&m_event);
 				return true;
 			}

@@ -5,7 +5,7 @@
 namespace bm {
 	class BM_API keyEvent : public eventClass {
 	public:
-		inline int keyCode() const { return m_keyCode; }
+		inline int getKeyCode() const { return m_keyCode; }
 		EVENT_CLASS_CATEGORY(eventCategoryKeyboard | eventCategoryInput)
 			
 	protected:

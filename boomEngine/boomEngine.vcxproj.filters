@@ -35,6 +35,9 @@
     <ClInclude Include="src\boomEngine\core\entryPoint.h">
       <Filter>boomEngine\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\boomEngine\core\input.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
     <ClInclude Include="src\boomEngine\core\layer.h">
       <Filter>boomEngine\core</Filter>
     </ClInclude>
@@ -68,9 +71,14 @@
     <ClInclude Include="src\platform\opengl\imguiOpenGLRendererLoader.h">
       <Filter>platform\opengl</Filter>
     </ClInclude>
+    <ClInclude Include="src\platform\windows\windowsInput.h">
+      <Filter>platform\windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\platform\windows\windowsWindow.h">
       <Filter>platform\windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\boomEngine\core\keyCode.h" />
+    <ClInclude Include="src\boomEngine\core\mouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bmpch.cpp" />
@@ -91,6 +99,9 @@
     </ClCompile>
     <ClCompile Include="src\platform\opengl\imguiOpenGLRenderer.cpp">
       <Filter>platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\windows\windowsInput.cpp">
+      <Filter>platform\windows</Filter>
     </ClCompile>
     <ClCompile Include="src\platform\windows\windowsWindow.cpp">
       <Filter>platform\windows</Filter>

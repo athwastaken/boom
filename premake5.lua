@@ -17,6 +17,7 @@ workspace "boom"
 	includedir["glad"] = "boomEngine/vendor/glad/include"
 	includedir["spdlog"] = "boomEngine/vendor/spdlog/include"
 	includedir["imgui"] = "boomEngine/vendor/imgui"
+	includedir["glm"] = "boomEngine/vendor/glm"
 
 	group "dependencies"
 		include "boomEngine/vendor/glfw"
@@ -49,7 +50,8 @@ project "boomEngine"
 		"%{includedir.spdlog}",
 		"%{includedir.glfw}",
 		"%{includedir.glad}",
-		"%{includedir.imgui}"
+		"%{includedir.imgui}",
+		"%{includedir.glm}"
 	}
 
 	links
@@ -67,7 +69,8 @@ project "boomEngine"
 		defines
 		{
 			"BM_PLATFORM_WINDOWS",
-			"GLFW_INCLUDE_NONE"
+			"GLFW_INCLUDE_NONE",
+			"BM_BUILD_DLL"
 		}
 
 		postbuildcommands

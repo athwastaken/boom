@@ -4,11 +4,7 @@
 
 namespace bm {
 
-	static app* s_instance = nullptr;
-
-	app& app::getApp() {
-		return *s_instance;
-	}
+	app* app::s_instance = nullptr;
 
 	app::app() {
 		BM_CORE_ASSERT(!s_instance, "App already exists.");
@@ -50,8 +46,6 @@ namespace bm {
 			for (layer* layer : m_layerStack)
 				layer->onUpdate();
 
-			auto [x, y] = input::getMousePos();
-			BM_CORE_TRACE("{0}, {1}", x, y);
 			m_window->onUpdate();
 		}
 	}
