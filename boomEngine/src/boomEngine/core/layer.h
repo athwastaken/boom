@@ -12,6 +12,7 @@ namespace bm {
 		virtual void onAttach() {};
 		virtual void onDetach() {};
 		virtual void onUpdate() {};
+		virtual void onImGuiDraw() {};
 		virtual void onEvent(eventClass& e) {};
 
 		inline const std::string& name() const { return m_debugName; }

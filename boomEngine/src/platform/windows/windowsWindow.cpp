@@ -45,7 +45,7 @@ namespace bm {
 		m_window = glfwCreateWindow((int)props.width, (int)props.height, props.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_window);
 		int success = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		BM_CORE_ASSERT(success, "Failed to initialize glad.");
+		BM_CORE_ASSERT(success, "Failed to initialize Glad.");
 		glfwSetWindowUserPointer(m_window, &m_data);
 		vsync(true);
 

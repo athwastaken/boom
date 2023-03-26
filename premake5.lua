@@ -1,6 +1,5 @@
 workspace "boom"
 	architecture "x64"
-
 	startproject "boom"
 
 	configurations
@@ -13,16 +12,16 @@ workspace "boom"
 	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 	includedir = {}
-	includedir["glfw"] = "boomEngine/vendor/glfw/include"
-	includedir["glad"] = "boomEngine/vendor/glad/include"
-	includedir["spdlog"] = "boomEngine/vendor/spdlog/include"
-	includedir["imgui"] = "boomEngine/vendor/imgui"
-	includedir["glm"] = "boomEngine/vendor/glm"
+	includedir["GLFW"] = "boomEngine/vendor/GLFW/include/"
+	includedir["Glad"] = "boomEngine/vendor/Glad/include/"
+	includedir["spdlog"] = "boomEngine/vendor/spdlog/include/"
+	includedir["ImGui"] = "boomEngine/vendor/ImGui/"
+	includedir["glm"] = "boomEngine/vendor/glm/"
 
 	group "dependencies"
-		include "boomEngine/vendor/glfw"
-		include "boomEngine/vendor/glad"
-		include "boomEngine/vendor/imgui"
+		include "boomEngine/vendor/GLFW/"
+		include "boomEngine/vendor/Glad/"
+		include "boomEngine/vendor/ImGui/"
 	group ""
 
 
@@ -41,24 +40,24 @@ project "boomEngine"
 	files
 	{
 		"%{prj.name}/src/**.h", 
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
 	}
 
 	includedirs
 	{
-		"%{prj.name}/src",
+		"%{prj.name}/src/",
 		"%{includedir.spdlog}",
-		"%{includedir.glfw}",
-		"%{includedir.glad}",
-		"%{includedir.imgui}",
+		"%{includedir.GLFW}",
+		"%{includedir.Glad}",
+		"%{includedir.ImGui}",
 		"%{includedir.glm}"
 	}
 
 	links
 	{
-		"glfw",
-		"glad",
-		"imgui",
+		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -114,10 +113,10 @@ project "boom"
 	{
 		"boomEngine/src",
 		"%{includedir.spdlog}",
-		"%{includedir.glfw}",
-		"%{includedir.glad}",
-		"%{includedir.imgui}"
-		
+		"%{includedir.GLFW}",
+		"%{includedir.Glad}",
+		"%{includedir.ImGui}",
+		"%{includedir.glm}"
 	}
 
 	links

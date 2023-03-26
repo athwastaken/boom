@@ -9,6 +9,8 @@
 #include "boomEngine/events/eventClass.h"
 #include "boomEngine/events/appEvent.h"
 
+#include "boomEngine/ImGui/ImGuiLayer.h"
+
 #include "input.h"
 
 #include <glad/glad.h>
@@ -32,7 +34,8 @@ namespace bm {
 		bool onWindowClose(windowCloseEvent& e);
 		std::unique_ptr<window> m_window;
 		layerStack m_layerStack;
-
+		
+		ImGuiLayer* m_ImGuiLayer;
 		static app* s_instance;
 	};
 

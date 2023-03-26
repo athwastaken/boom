@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_BUILD_DLL;BM_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_BUILD_DLL;BM_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_BUILD_DLL;BM_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -170,9 +170,7 @@
     <ClInclude Include="src\boomEngine\events\eventClass.h" />
     <ClInclude Include="src\boomEngine\events\keyEvent.h" />
     <ClInclude Include="src\boomEngine\events\mouseEvent.h" />
-    <ClInclude Include="src\boomEngine\imgui\imguiLayer.h" />
-    <ClInclude Include="src\platform\opengl\imguiOpenGLRenderer.h" />
-    <ClInclude Include="src\platform\opengl\imguiOpenGLRendererLoader.h" />
+    <ClInclude Include="src\boomEngine\imgui\ImGuiLayer.h" />
     <ClInclude Include="src\platform\windows\windowsInput.h" />
     <ClInclude Include="src\platform\windows\windowsWindow.h" />
   </ItemGroup>
@@ -184,20 +182,19 @@
     <ClCompile Include="src\boomEngine\core\layer.cpp" />
     <ClCompile Include="src\boomEngine\core\layerStack.cpp" />
     <ClCompile Include="src\boomEngine\core\log.cpp" />
-    <ClCompile Include="src\boomEngine\imgui\imguiLayer.cpp" />
-    <ClCompile Include="src\platform\opengl\imguiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\boomEngine\imgui\ImGuiLayer.cpp" />
     <ClCompile Include="src\platform\windows\windowsInput.cpp" />
     <ClCompile Include="src\platform\windows\windowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="vendor\glfw\glfw.vcxproj">
-      <Project>{9563977C-819A-980D-2A87-7E10169D140F}</Project>
+    <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
     </ProjectReference>
-    <ProjectReference Include="vendor\glad\glad.vcxproj">
-      <Project>{DD62977C-C999-980D-7286-7E105E9C140F}</Project>
+    <ProjectReference Include="vendor\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
     </ProjectReference>
-    <ProjectReference Include="vendor\imgui\imgui.vcxproj">
-      <Project>{0098A80F-6CAC-D0C0-352E-7420A101CDF1}</Project>
+    <ProjectReference Include="vendor\ImGui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

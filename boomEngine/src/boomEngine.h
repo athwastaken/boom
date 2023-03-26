@@ -11,7 +11,7 @@
 #include "boomEngine/core/keyCode.h"
 #include "boomEngine/core/mouseCodes.h"
 
-#include "boomEngine/imgui/imguiLayer.h"
+#include "boomEngine/imgui/ImGuiLayer.h"
 
 // entry point
 #include "boomEngine/core/entryPoint.h""

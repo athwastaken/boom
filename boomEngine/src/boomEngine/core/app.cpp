@@ -13,6 +13,9 @@ namespace bm {
 		m_running = true;
 		m_window = std::unique_ptr<window>(window::create());
 		m_window->eventCallback(BM_BIND_EVENT_FN(app::onEvent));
+
+		m_ImGuiLayer = new ImGuiLayer();
+		pushOverlay(m_ImGuiLayer);
 	}
 
 	app::~app() {
@@ -42,9 +45,21 @@ namespace bm {
 		while (m_running) {
 			glClearColor(0, 0, 0, 0);
 			glClear(GL_COLOR_BUFFER_BIT);
+			
+			// updates
 
-			for (layer* layer : m_layerStack)
-				layer->onUpdate();
+			for (layer* layer : m_layerStack) {
+			layer->onUpdate();
+			}
+
+			// rendering
+
+			m_ImGuiLayer->begin();
+			for (layer* layer : m_layerStack) {
+				layer->onImGuiDraw();
+			}
+			m_ImGuiLayer->end();
+			
 
 			m_window->onUpdate();
 		}

@@ -16,9 +16,6 @@
     <Filter Include="platform">
       <UniqueIdentifier>{4A63C33C-3630-1E48-5F49-0CF04B7553D6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="platform\opengl">
-      <UniqueIdentifier>{9E4DBFD0-0AD9-2C95-13EA-AF897FF48895}</UniqueIdentifier>
-    </Filter>
     <Filter Include="platform\windows">
       <UniqueIdentifier>{A44FC440-9048-E392-B97A-C817A5D2C29E}</UniqueIdentifier>
     </Filter>
@@ -38,6 +35,9 @@
     <ClInclude Include="src\boomEngine\core\input.h">
       <Filter>boomEngine\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\boomEngine\core\keyCode.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
     <ClInclude Include="src\boomEngine\core\layer.h">
       <Filter>boomEngine\core</Filter>
     </ClInclude>
@@ -45,6 +45,9 @@
       <Filter>boomEngine\core</Filter>
     </ClInclude>
     <ClInclude Include="src\boomEngine\core\log.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\core\mouseCodes.h">
       <Filter>boomEngine\core</Filter>
     </ClInclude>
     <ClInclude Include="src\boomEngine\core\window.h">
@@ -62,14 +65,8 @@
     <ClInclude Include="src\boomEngine\events\mouseEvent.h">
       <Filter>boomEngine\events</Filter>
     </ClInclude>
-    <ClInclude Include="src\boomEngine\imgui\imguiLayer.h">
+    <ClInclude Include="src\boomEngine\imgui\ImGuiLayer.h">
       <Filter>boomEngine\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\platform\opengl\imguiOpenGLRenderer.h">
-      <Filter>platform\opengl</Filter>
-    </ClInclude>
-    <ClInclude Include="src\platform\opengl\imguiOpenGLRendererLoader.h">
-      <Filter>platform\opengl</Filter>
     </ClInclude>
     <ClInclude Include="src\platform\windows\windowsInput.h">
       <Filter>platform\windows</Filter>
@@ -77,8 +74,6 @@
     <ClInclude Include="src\platform\windows\windowsWindow.h">
       <Filter>platform\windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\boomEngine\core\keyCode.h" />
-    <ClInclude Include="src\boomEngine\core\mouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bmpch.cpp" />
@@ -94,11 +89,8 @@
     <ClCompile Include="src\boomEngine\core\log.cpp">
       <Filter>boomEngine\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\boomEngine\imgui\imguiLayer.cpp">
+    <ClCompile Include="src\boomEngine\imgui\ImGuiLayer.cpp">
       <Filter>boomEngine\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\platform\opengl\imguiOpenGLRenderer.cpp">
-      <Filter>platform\opengl</Filter>
     </ClCompile>
     <ClCompile Include="src\platform\windows\windowsInput.cpp">
       <Filter>platform\windows</Filter>
