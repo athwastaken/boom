@@ -7,6 +7,9 @@
     <Filter Include="boomEngine\core">
       <UniqueIdentifier>{A0E56C83-0C71-DA47-1582-5D3C818C3648}</UniqueIdentifier>
     </Filter>
+    <Filter Include="boomEngine\draw">
+      <UniqueIdentifier>{A57C6D83-1108-DB47-1A19-5E3C86233748}</UniqueIdentifier>
+    </Filter>
     <Filter Include="boomEngine\events">
       <UniqueIdentifier>{2CDF5E17-98F5-5CAD-E16C-E8CE4DC22D35}</UniqueIdentifier>
     </Filter>
@@ -15,6 +18,9 @@
     </Filter>
     <Filter Include="platform">
       <UniqueIdentifier>{4A63C33C-3630-1E48-5F49-0CF04B7553D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\opengl">
+      <UniqueIdentifier>{9E4DBFD0-0AD9-2C95-13EA-AF897FF48895}</UniqueIdentifier>
     </Filter>
     <Filter Include="platform\windows">
       <UniqueIdentifier>{A44FC440-9048-E392-B97A-C817A5D2C29E}</UniqueIdentifier>
@@ -53,6 +59,9 @@
     <ClInclude Include="src\boomEngine\core\window.h">
       <Filter>boomEngine\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\context.h">
+      <Filter>boomEngine\draw</Filter>
+    </ClInclude>
     <ClInclude Include="src\boomEngine\events\appEvent.h">
       <Filter>boomEngine\events</Filter>
     </ClInclude>
@@ -68,14 +77,15 @@
     <ClInclude Include="src\boomEngine\imgui\ImGuiLayer.h">
       <Filter>boomEngine\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="src\platform\opengl\openGLContext.h">
+      <Filter>platform\opengl</Filter>
+    </ClInclude>
     <ClInclude Include="src\platform\windows\windowsInput.h">
       <Filter>platform\windows</Filter>
     </ClInclude>
     <ClInclude Include="src\platform\windows\windowsWindow.h">
       <Filter>platform\windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\boomEngine\draw\context.h" />
-    <ClInclude Include="src\platform\opengl\openGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bmpch.cpp" />
@@ -97,12 +107,14 @@
     <ClCompile Include="src\boomEngine\imgui\ImGuiLayer.cpp">
       <Filter>boomEngine\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="src\platform\opengl\openGLContext.cpp">
+      <Filter>platform\opengl</Filter>
+    </ClCompile>
     <ClCompile Include="src\platform\windows\windowsInput.cpp">
       <Filter>platform\windows</Filter>
     </ClCompile>
     <ClCompile Include="src\platform\windows\windowsWindow.cpp">
       <Filter>platform\windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\opengl\openGLContext.cpp" />
   </ItemGroup>
 </Project>
