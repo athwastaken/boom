@@ -7,6 +7,8 @@
 #include <glm/ext/matrix_clip_space.hpp> // glm::perspective
 #include <glm/ext/scalar_constants.hpp> // glm::pi
 
+#include <imgui.h>
+
 glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 {
 	glm::mat4 Projection = glm::perspective(glm::pi<float>() * 0.25f, 4.0f / 3.0f, 0.1f, 100.f);
@@ -23,19 +25,18 @@ public:
 
 	}
 
-	void onUpdate() override {
-		if (bm::input::isKeyPressed(BM_KEY_TAB)) {
-			BM_TRACE("Tab pressed (poll).");
-		}
+	virtual void onUpdate() override {
+		
 	}
 
-	void onEvent(bm::eventClass & e) override {
-		if (e.getEventType() == bm::eventType::keyPressed) {
-			bm::keyPressedEvent& keyEvent = (bm::keyPressedEvent&)e;
-			if (keyEvent.getKeyCode() == BM_KEY_TAB) {
-				BM_TRACE("Tab pressed (event).");
-			}
-		}
+	virtual void onImGuiDraw() override {
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
+	}
+
+	virtual void onEvent(bm::eventClass & e) override {
+		
 	}
 };
 

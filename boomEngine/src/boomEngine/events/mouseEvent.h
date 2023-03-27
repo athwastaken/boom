@@ -3,7 +3,7 @@
 #include "eventClass.h"
 
 namespace bm {
-	class BM_API mouseMovedEvent : public eventClass {
+	class mouseMovedEvent : public eventClass {
 	public:
 		mouseMovedEvent(float posX, float posY)
 			: m_posX(posX), m_posY(posY) {};
@@ -23,7 +23,7 @@ namespace bm {
 		float m_posX, m_posY;
 	};
 
-	class BM_API mouseScrolledEvent : public eventClass {
+	class mouseScrolledEvent : public eventClass {
 	public:
 		mouseScrolledEvent(float offsetX, float offsetY)
 			: m_offsetX(offsetX), m_offsetY(offsetY) {};
@@ -43,7 +43,7 @@ namespace bm {
 		float m_offsetX, m_offsetY;
 	};
 
-	class BM_API mouseButtonEvent : public eventClass {
+	class mouseButtonEvent : public eventClass {
 	public:
 		inline int getMouseButton() const { return m_button; }
 
@@ -55,7 +55,7 @@ namespace bm {
 		int m_button;
 	};
 
-	class BM_API mouseButtonPressedEvent : public mouseButtonEvent {
+	class mouseButtonPressedEvent : public mouseButtonEvent {
 	public:
 		mouseButtonPressedEvent(int button)
 			: mouseButtonEvent(button) {};
@@ -69,7 +69,7 @@ namespace bm {
 		EVENT_CLASS_TYPE(mouseButtonPressed)
 	};
 
-	class BM_API mouseButtonReleasedEvent : public mouseButtonEvent {
+	class mouseButtonReleasedEvent : public mouseButtonEvent {
 	public:
 		mouseButtonReleasedEvent(int button)
 			: mouseButtonEvent(button) {};

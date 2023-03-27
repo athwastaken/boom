@@ -2,16 +2,6 @@
 
 #include "bmpch.h"
 
-#ifdef BM_PLATFORM_WINDOWS
-	#ifdef BM_BUILD_DLL
-		#define BM_API __declspec(dllexport)
-	#else
-		#define BM_API __declspec(dllimport)
-	#endif
-#else
-	#error Boom only supports Windows at this time.
-#endif
-
 #ifdef BM_DEBUG
 	#define BM_ENABLE_ASSERTS
 #endif
@@ -27,3 +17,21 @@
 #define BIT(x) (1 << x)
 
 #define BM_BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
+
+namespace bm {
+	template<typename T>
+	using scope = std::unique_ptr<T>;
+	template<typename T, typename ... args>
+	constexpr scope<T> CreateScope(args&& ... a) {
+		return std::make_unique<T>(std::forward<args>(a)...);
+	}
+
+	template<typename T>
+	using ref = std::shared_ptr<T>;
+	template<typename T, typename ... args>
+	constexpr ref<T> CreateRef(args&& ... a) {
+		return std::make_shared<T>(std::forward<args>(a)...);
+	}
+}
+
+#include "boomEngine/core/log.h"

@@ -1,6 +1,18 @@
 #include "bmpch.h"
-
 #include "ImGuiLayer.h"
+
+#include <glad/glad.h>
+
+#include <GLFW/glfw3.h>
+
+#include <imgui.h>
+#include <imgui_internal.h>
+
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
+
+
+#include "boomEngine/core/app.h"
 
 
 namespace bm {
@@ -62,7 +74,7 @@ namespace bm {
 	void ImGuiLayer::end() {
 		ImGuiIO& io = ImGui::GetIO();
 		app& app = app::getApp();
-		io.DisplaySize = ImVec2(app.getWindow().getWidth(), app.getWindow().getHeight());
+		io.DisplaySize = ImVec2((float)app.getWindow().getWidth(), (float)app.getWindow().getHeight());
 
 		// rendering
 

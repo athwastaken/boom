@@ -27,9 +27,10 @@ workspace "boom"
 
 project "boomEngine"
 	location "boomEngine"
-	kind "SharedLib"
-	staticruntime "off"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++20"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -62,43 +63,36 @@ project "boomEngine"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
 		systemversion "latest"
 
 		defines
 		{
 			"BM_PLATFORM_WINDOWS",
 			"GLFW_INCLUDE_NONE",
-			"BM_BUILD_DLL"
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/boom/\"")
 		}
 	
 	filter "configurations:debug"
 		defines "BM_DEBUG"
 		runtime "debug"
-		symbols "On"
+		symbols "on"
 		
 
 	filter "configurations:release"
 		defines "BM_RELEASE"
 		runtime "release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:dist"
 		defines "BM_DIST"
 		runtime "release"
-		optimize "On"
-		symbols "Off"
+		optimize "on"
 
 project "boom"
 	location "boom"
 	kind "ConsoleApp"
-	staticruntime "off"
 	language "C++"
+	cppdialect "C++20"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -125,7 +119,6 @@ project "boom"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
 		systemversion "latest"
 
 		defines
@@ -136,16 +129,15 @@ project "boom"
 	filter "configurations:debug"
 		defines "BM_DEBUG"
 		runtime "debug"
-		symbols "On"
+		symbols "on"
 		
 
 	filter "configurations:release"
 		defines "BM_RELEASE"
 		runtime "release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:dist"
 		defines "BM_DIST"
 		runtime "release"
-		optimize "On"
-		symbols "Off"
+		optimize "on"

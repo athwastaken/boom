@@ -74,6 +74,8 @@
     <ClInclude Include="src\platform\windows\windowsWindow.h">
       <Filter>platform\windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\context.h" />
+    <ClInclude Include="src\platform\opengl\openGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bmpch.cpp" />
@@ -89,6 +91,9 @@
     <ClCompile Include="src\boomEngine\core\log.cpp">
       <Filter>boomEngine\core</Filter>
     </ClCompile>
+    <ClCompile Include="src\boomEngine\imgui\ImGuiBuild.cpp">
+      <Filter>boomEngine\imgui</Filter>
+    </ClCompile>
     <ClCompile Include="src\boomEngine\imgui\ImGuiLayer.cpp">
       <Filter>boomEngine\imgui</Filter>
     </ClCompile>
@@ -98,5 +103,6 @@
     <ClCompile Include="src\platform\windows\windowsWindow.cpp">
       <Filter>platform\windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\platform\opengl\openGLContext.cpp" />
   </ItemGroup>
 </Project>

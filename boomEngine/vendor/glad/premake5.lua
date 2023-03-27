@@ -1,7 +1,7 @@
 project "Glad"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -19,8 +19,7 @@ project "Glad"
 	}
 
 	filter "system:linux"
-		pic "On"
-
+		pic "on"
 		systemversion "latest"
 
 	filter "system:windows"
@@ -37,4 +36,3 @@ project "Glad"
 	filter "configurations:dist"
 		runtime "release"
 		optimize "on"
-        symbols "off"

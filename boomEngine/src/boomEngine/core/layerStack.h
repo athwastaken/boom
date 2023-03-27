@@ -6,7 +6,7 @@
 #include <vector>
 
 namespace bm {
-	class BM_API layerStack
+	class layerStack
 	{
 	public:
 		layerStack() = default;

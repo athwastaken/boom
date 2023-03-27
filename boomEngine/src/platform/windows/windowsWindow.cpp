@@ -6,7 +6,7 @@
 #include "boomEngine/events/keyEvent.h"
 #include "boomEngine/events/mouseEvent.h"
 
-#include <glad/glad.h>
+#include "platform/opengl/openGLContext.h"
 
 namespace bm {
 	static bool s_glfwInitialized = false;
@@ -43,11 +43,13 @@ namespace bm {
 		}
 
 		m_window = glfwCreateWindow((int)props.width, (int)props.height, props.title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_window);
-		int success = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		BM_CORE_ASSERT(success, "Failed to initialize Glad.");
+
+		m_context = new openGLContext(m_window);
+
+		m_context->init();
+
 		glfwSetWindowUserPointer(m_window, &m_data);
-		vsync(true);
+		setVsync(true);
 
 		// set glfw callbacks
 
@@ -58,7 +60,7 @@ namespace bm {
 
 			windowResizeEvent event(width, height);
 
-			data.eventCallback(event);
+			data.setEventCallback(event);
 		});
 
 		glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
@@ -66,7 +68,7 @@ namespace bm {
 
 			windowCloseEvent event;
 
-			data.eventCallback(event);
+			data.setEventCallback(event);
 		});
 
 		glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -75,17 +77,17 @@ namespace bm {
 			switch (action) {
 				case GLFW_PRESS: {
 					keyPressedEvent event(key, false);
-					data.eventCallback(event);
+					data.setEventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE: {
 					keyReleasedEvent event(key);
-					data.eventCallback(event);
+					data.setEventCallback(event);
 					break;
 				}
 				case GLFW_REPEAT: {
 					keyPressedEvent event(key, true);
-					data.eventCallback(event);
+					data.setEventCallback(event);
 					break;
 				}
 			}
@@ -94,7 +96,7 @@ namespace bm {
 		glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int keycode) {
 			windowData& data = *(windowData*)glfwGetWindowUserPointer(window);
 			keyTypedEvent event(keycode);
-			data.eventCallback(event);
+			data.setEventCallback(event);
 		});
 
 		glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods) {
@@ -103,12 +105,12 @@ namespace bm {
 			switch (action) {
 				case GLFW_PRESS: {
 					mouseButtonPressedEvent event(button);
-					data.eventCallback(event);
+					data.setEventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE: {
 					mouseButtonReleasedEvent event(button);
-					data.eventCallback(event);
+					data.setEventCallback(event);
 					break;
 				}
 			}
@@ -118,14 +120,14 @@ namespace bm {
 			windowData& data = *(windowData*)glfwGetWindowUserPointer(window);
 
 			mouseScrolledEvent event((float)offsetX, (float)offsetY);
-			data.eventCallback(event);
+			data.setEventCallback(event);
 		});
 
 		glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double posX, double posY) {
 			windowData& data = *(windowData*)glfwGetWindowUserPointer(window);
 
 			mouseMovedEvent event((float)posX, (float)posY);
-			data.eventCallback(event);
+			data.setEventCallback(event);
 		});
 	}
 	
@@ -135,10 +137,10 @@ namespace bm {
 
 	void windowsWindow::onUpdate() {
 		glfwPollEvents();
-		glfwSwapBuffers(m_window);
+		m_context->swapBuffers();
 	}
 
-	void windowsWindow::vsync(bool enabled) {
+	void windowsWindow::setVsync(bool enabled) {
 		if (enabled)
 			glfwSwapInterval(1);
 		else

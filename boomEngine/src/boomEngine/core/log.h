@@ -8,29 +8,29 @@
 #include "spdlog/fmt/ostr.h"
 
 namespace bm {
-	class BM_API log {
+	class log {
 	public:
 		static void init();
 
-		inline static std::shared_ptr<spdlog::logger>& coreLogger();
-		inline static std::shared_ptr<spdlog::logger>& clientLogger();
+		static ref<spdlog::logger>& getCoreLogger() { return s_getCoreLogger; }
+		static ref<spdlog::logger>& getClientLogger() { return s_getClientLogger; }
 		
 	private:
-		static std::shared_ptr<spdlog::logger> s_coreLogger;
-		static std::shared_ptr<spdlog::logger> s_clientLogger;
+		static ref<spdlog::logger> s_getCoreLogger;
+		static ref<spdlog::logger> s_getClientLogger;
 	};
 }
 
 // core log macros
-#define BM_CORE_TRACE(...) bm::log::coreLogger()->trace(__VA_ARGS__)
-#define BM_CORE_INFO(...) bm::log::coreLogger()->info(__VA_ARGS__)
-#define BM_CORE_WARN(...) bm::log::coreLogger()->warn(__VA_ARGS__)
-#define BM_CORE_ERROR(...) bm::log::coreLogger()->error(__VA_ARGS__)
-#define BM_CORE_FATAL(...) bm::log::coreLogger()->fatal(__VA_ARGS__)
+#define BM_CORE_TRACE(...) bm::log::getCoreLogger()->trace(__VA_ARGS__)
+#define BM_CORE_INFO(...) bm::log::getCoreLogger()->info(__VA_ARGS__)
+#define BM_CORE_WARN(...) bm::log::getCoreLogger()->warn(__VA_ARGS__)
+#define BM_CORE_ERROR(...) bm::log::getCoreLogger()->error(__VA_ARGS__)
+#define BM_CORE_FATAL(...) bm::log::getCoreLogger()->fatal(__VA_ARGS__)
 
 // client log macros
-#define BM_TRACE(...) bm::log::clientLogger()->trace(__VA_ARGS__)
-#define BM_INFO(...) bm::log::clientLogger()->info(__VA_ARGS__)
-#define BM_WARN(...) bm::log::clientLogger()->warn(__VA_ARGS__)
-#define BM_ERROR(...) bm::log::clientLogger()->error(__VA_ARGS__)
-#define BM_FATAL(...) bm::log::clientLogger()->fatal(__VA_ARGS__)
+#define BM_TRACE(...) bm::log::getClientLogger()->trace(__VA_ARGS__)
+#define BM_INFO(...) bm::log::getClientLogger()->info(__VA_ARGS__)
+#define BM_WARN(...) bm::log::getClientLogger()->warn(__VA_ARGS__)
+#define BM_ERROR(...) bm::log::getClientLogger()->error(__VA_ARGS__)
+#define BM_FATAL(...) bm::log::getClientLogger()->fatal(__VA_ARGS__)

@@ -16,7 +16,7 @@
 #include <glad/glad.h>
 
 namespace bm {
-	class BM_API app {
+	class app {
 	public:
 		app();
 		virtual ~app();
@@ -27,13 +27,15 @@ namespace bm {
 		void onEvent(eventClass& e);
 
 		void run();
-		inline window& getWindow() { return *m_window; }
-		inline static app& getApp() { return *s_instance; }
+		window& getWindow() { return *m_window; }
+		static app& getApp() { return *s_instance; }
 	private:
 		bool m_running = false;
 		bool onWindowClose(windowCloseEvent& e);
 		std::unique_ptr<window> m_window;
 		layerStack m_layerStack;
+
+		unsigned int m_vertexArray, m_vertexBuffer, m_indexBuffer;
 		
 		ImGuiLayer* m_ImGuiLayer;
 		static app* s_instance;

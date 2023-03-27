@@ -3,7 +3,7 @@
 #include "boomEngine/core/base.h"
 
 namespace bm {
-	class BM_API input {
+	class input {
 	public:
 		inline static bool isKeyPressed(int keycode) { return s_instance->isKeyPressedImpl(keycode); }
 		inline static bool isMouseButtonPressed(int button) { return s_instance->isMouseButtonPressedImpl(button); }

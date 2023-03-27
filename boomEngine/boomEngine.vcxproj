@@ -23,19 +23,19 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dist|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
@@ -54,62 +54,57 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\debug-windows-x86_64\boomEngine\</OutDir>
     <IntDir>..\bin-int\debug-windows-x86_64\boomEngine\</IntDir>
     <TargetName>boomEngine</TargetName>
-    <TargetExt>.dll</TargetExt>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
-    <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\release-windows-x86_64\boomEngine\</OutDir>
     <IntDir>..\bin-int\release-windows-x86_64\boomEngine\</IntDir>
     <TargetName>boomEngine</TargetName>
-    <TargetExt>.dll</TargetExt>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dist|x64'">
-    <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\dist-windows-x86_64\boomEngine\</OutDir>
     <IntDir>..\bin-int\dist-windows-x86_64\boomEngine\</IntDir>
     <TargetName>boomEngine</TargetName>
-    <TargetExt>.dll</TargetExt>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_BUILD_DLL;BM_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ImportLibrary>..\bin\debug-windows-x86_64\boomEngine\boomEngine.lib</ImportLibrary>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\debug-windows-x86_64\boomEngine\boomEngine.dll\ (xcopy /Q /E /Y /I ..\bin\debug-windows-x86_64\boomEngine\boomEngine.dll "..\bin\debug-windows-x86_64\boom\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\debug-windows-x86_64\boomEngine\boomEngine.dll "..\bin\debug-windows-x86_64\boom\" &gt; nul)</Command>
-    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_BUILD_DLL;BM_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -117,41 +112,35 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ImportLibrary>..\bin\release-windows-x86_64\boomEngine\boomEngine.lib</ImportLibrary>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\release-windows-x86_64\boomEngine\boomEngine.dll\ (xcopy /Q /E /Y /I ..\bin\release-windows-x86_64\boomEngine\boomEngine.dll "..\bin\release-windows-x86_64\boom\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\release-windows-x86_64\boomEngine\boomEngine.dll "..\bin\release-windows-x86_64\boom\" &gt; nul)</Command>
-    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='dist|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_BUILD_DLL;BM_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ImportLibrary>..\bin\dist-windows-x86_64\boomEngine\boomEngine.lib</ImportLibrary>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\dist-windows-x86_64\boomEngine\boomEngine.dll\ (xcopy /Q /E /Y /I ..\bin\dist-windows-x86_64\boomEngine\boomEngine.dll "..\bin\dist-windows-x86_64\boom\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\dist-windows-x86_64\boomEngine\boomEngine.dll "..\bin\dist-windows-x86_64\boom\" &gt; nul)</Command>
-    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\bmpch.h" />
@@ -166,11 +155,13 @@
     <ClInclude Include="src\boomEngine\core\log.h" />
     <ClInclude Include="src\boomEngine\core\mouseCodes.h" />
     <ClInclude Include="src\boomEngine\core\window.h" />
+    <ClInclude Include="src\boomEngine\draw\context.h" />
     <ClInclude Include="src\boomEngine\events\appEvent.h" />
     <ClInclude Include="src\boomEngine\events\eventClass.h" />
     <ClInclude Include="src\boomEngine\events\keyEvent.h" />
     <ClInclude Include="src\boomEngine\events\mouseEvent.h" />
     <ClInclude Include="src\boomEngine\imgui\ImGuiLayer.h" />
+    <ClInclude Include="src\platform\opengl\openGLContext.h" />
     <ClInclude Include="src\platform\windows\windowsInput.h" />
     <ClInclude Include="src\platform\windows\windowsWindow.h" />
   </ItemGroup>
@@ -182,7 +173,9 @@
     <ClCompile Include="src\boomEngine\core\layer.cpp" />
     <ClCompile Include="src\boomEngine\core\layerStack.cpp" />
     <ClCompile Include="src\boomEngine\core\log.cpp" />
+    <ClCompile Include="src\boomEngine\imgui\ImGuiBuild.cpp" />
     <ClCompile Include="src\boomEngine\imgui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\platform\opengl\openGLContext.cpp" />
     <ClCompile Include="src\platform\windows\windowsInput.cpp" />
     <ClCompile Include="src\platform\windows\windowsWindow.cpp" />
   </ItemGroup>

@@ -17,7 +17,7 @@ namespace bm {
 	};
 
 	// interface representing a desktop window
-	class BM_API window {
+	class window {
 	public:
 		using eventCallbackFn = std::function<void(eventClass&)>;
 
@@ -28,8 +28,8 @@ namespace bm {
 		virtual unsigned int getHeight() const = 0;
 
 		// window attributes
-		virtual void eventCallback(const eventCallbackFn& callback) = 0;
-		virtual void vsync(bool enabled) = 0;
+		virtual void setEventCallback(const eventCallbackFn& callback) = 0;
+		virtual void setVsync(bool enabled) = 0;
 		virtual bool isVsync() const = 0;
 
 		virtual void* getNativeWindow() const = 0;

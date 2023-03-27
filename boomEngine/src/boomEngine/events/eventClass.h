@@ -32,7 +32,7 @@ namespace bm {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int getCategoryFlags() const override { return category; }
 
-	class BM_API eventClass {
+	class eventClass {
 		friend class eventDispatcher;
 	public:
 		virtual eventType getEventType() const = 0;
@@ -40,7 +40,7 @@ namespace bm {
 		virtual int getCategoryFlags() const = 0;
 		virtual std::string toString() const { return getName(); }
 
-		inline bool isInCategory(eventCategory category) {
+		bool isInCategory(eventCategory category) {
 			return getCategoryFlags() & category;
 		}
 		bool m_handled = false;

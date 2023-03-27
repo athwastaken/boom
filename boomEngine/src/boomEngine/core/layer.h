@@ -4,7 +4,7 @@
 #include "boomEngine/events/eventClass.h"
 
 namespace bm {
-	class BM_API layer {
+	class layer {
 	public:
 		layer(const std::string& name = "Layer");
 		virtual ~layer() = default;
