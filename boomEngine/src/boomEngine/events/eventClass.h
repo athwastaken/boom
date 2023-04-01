@@ -40,7 +40,7 @@ namespace bm {
 		virtual int getCategoryFlags() const = 0;
 		virtual std::string toString() const { return getName(); }
 
-		bool isInCategory(eventCategory category) {
+		inline bool isInCategory(eventCategory category) {
 			return getCategoryFlags() & category;
 		}
 		bool m_handled = false;

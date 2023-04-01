@@ -19,11 +19,11 @@
     <Filter Include="platform">
       <UniqueIdentifier>{4A63C33C-3630-1E48-5F49-0CF04B7553D6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="platform\opengl">
-      <UniqueIdentifier>{9E4DBFD0-0AD9-2C95-13EA-AF897FF48895}</UniqueIdentifier>
+    <Filter Include="platform\OpenGL">
+      <UniqueIdentifier>{3E351A86-AAC0-874A-B3D1-0A3F1FDCE34A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="platform\windows">
-      <UniqueIdentifier>{A44FC440-9048-E392-B97A-C817A5D2C29E}</UniqueIdentifier>
+    <Filter Include="platform\Windows">
+      <UniqueIdentifier>{84B77CA1-70B0-9BF3-99E2-8078853A7BFF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -56,10 +56,34 @@
     <ClInclude Include="src\boomEngine\core\mouseCodes.h">
       <Filter>boomEngine\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\boomEngine\core\timestep.h">
+      <Filter>boomEngine\core</Filter>
+    </ClInclude>
     <ClInclude Include="src\boomEngine\core\window.h">
       <Filter>boomEngine\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\buffer.h">
+      <Filter>boomEngine\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\camera.h">
+      <Filter>boomEngine\draw</Filter>
+    </ClInclude>
     <ClInclude Include="src\boomEngine\draw\context.h">
+      <Filter>boomEngine\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\draw.h">
+      <Filter>boomEngine\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\drawAPI.h">
+      <Filter>boomEngine\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\drawCommand.h">
+      <Filter>boomEngine\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\shader.h">
+      <Filter>boomEngine\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boomEngine\draw\vertexArray.h">
       <Filter>boomEngine\draw</Filter>
     </ClInclude>
     <ClInclude Include="src\boomEngine\events\appEvent.h">
@@ -77,14 +101,23 @@
     <ClInclude Include="src\boomEngine\imgui\ImGuiLayer.h">
       <Filter>boomEngine\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\opengl\openGLContext.h">
-      <Filter>platform\opengl</Filter>
+    <ClInclude Include="src\platform\OpenGL\OpenGLBuffer.h">
+      <Filter>platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\windows\windowsInput.h">
-      <Filter>platform\windows</Filter>
+    <ClInclude Include="src\platform\OpenGL\OpenGLContext.h">
+      <Filter>platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\windows\windowsWindow.h">
-      <Filter>platform\windows</Filter>
+    <ClInclude Include="src\platform\OpenGL\OpenGLDrawAPI.h">
+      <Filter>platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\Windows\WindowsInput.h">
+      <Filter>platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\Windows\WindowsWindow.h">
+      <Filter>platform\Windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,20 +134,50 @@
     <ClCompile Include="src\boomEngine\core\log.cpp">
       <Filter>boomEngine\core</Filter>
     </ClCompile>
+    <ClCompile Include="src\boomEngine\draw\buffer.cpp">
+      <Filter>boomEngine\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\draw\camera.cpp">
+      <Filter>boomEngine\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\draw\draw.cpp">
+      <Filter>boomEngine\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\draw\drawAPI.cpp">
+      <Filter>boomEngine\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\draw\drawCommand.cpp">
+      <Filter>boomEngine\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\draw\shader.cpp">
+      <Filter>boomEngine\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boomEngine\draw\vertexArray.cpp">
+      <Filter>boomEngine\draw</Filter>
+    </ClCompile>
     <ClCompile Include="src\boomEngine\imgui\ImGuiBuild.cpp">
       <Filter>boomEngine\imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\boomEngine\imgui\ImGuiLayer.cpp">
       <Filter>boomEngine\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\opengl\openGLContext.cpp">
-      <Filter>platform\opengl</Filter>
+    <ClCompile Include="src\platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\windows\windowsInput.cpp">
-      <Filter>platform\windows</Filter>
+    <ClCompile Include="src\platform\OpenGL\OpenGLContext.cpp">
+      <Filter>platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\windows\windowsWindow.cpp">
-      <Filter>platform\windows</Filter>
+    <ClCompile Include="src\platform\OpenGL\OpenGLDrawAPI.cpp">
+      <Filter>platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\Windows\WindowsInput.cpp">
+      <Filter>platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\Windows\WindowsWindow.cpp">
+      <Filter>platform\Windows</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

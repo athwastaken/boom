@@ -1,18 +1,20 @@
 #include "bmpch.h"
-
 #include "log.h"
 
+#include <spdlog/sinks/stdout_color_sinks.h>
+#include <spdlog/sinks/basic_file_sink.h>
+
 namespace bm {
-	std::shared_ptr<spdlog::logger> log::s_getCoreLogger;
-	std::shared_ptr<spdlog::logger> log::s_getClientLogger;
+	ref<spdlog::logger> log::s_coreLogger;
+	ref<spdlog::logger> log::s_clientLogger;
 
 	void log::init()
 	{
 		spdlog::set_pattern("%^[%T] %n: %v%$");
-		s_getCoreLogger = spdlog::stdout_color_mt("Boom");
-		s_getCoreLogger->set_level(spdlog::level::trace);
+		s_coreLogger = spdlog::stdout_color_mt("Boom");
+		s_coreLogger->set_level(spdlog::level::trace);
 
-		s_getClientLogger = spdlog::stdout_color_mt("App");
-		s_getClientLogger->set_level(spdlog::level::trace);
+		s_clientLogger = spdlog::stdout_color_mt("App");
+		s_clientLogger->set_level(spdlog::level::trace);
 	}
 }

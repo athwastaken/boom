@@ -9,11 +9,9 @@
 #include "boomEngine/events/eventClass.h"
 #include "boomEngine/events/appEvent.h"
 
+#include "boomEngine/core/timestep.h"
+
 #include "boomEngine/ImGui/ImGuiLayer.h"
-
-#include "input.h"
-
-#include <glad/glad.h>
 
 namespace bm {
 	class app {
@@ -27,17 +25,18 @@ namespace bm {
 		void onEvent(eventClass& e);
 
 		void run();
-		window& getWindow() { return *m_window; }
-		static app& getApp() { return *s_instance; }
+		inline window& getWindow() { return *m_window; }
+		inline static app& getApp() { return *s_instance; }
 	private:
-		bool m_running = false;
 		bool onWindowClose(windowCloseEvent& e);
-		std::unique_ptr<window> m_window;
-		layerStack m_layerStack;
 
-		unsigned int m_vertexArray, m_vertexBuffer, m_indexBuffer;
-		
+		bool m_running = false;
+		scope<window> m_window;
+		layerStack m_layerStack;
 		ImGuiLayer* m_ImGuiLayer;
+
+		float m_lastFrameTime = 0.0f;
+
 		static app* s_instance;
 	};
 

@@ -8,8 +8,8 @@ namespace bm {
 		windowResizeEvent(unsigned int windowWidth, unsigned int windowHeight)
 			: m_windowWidth(windowWidth), m_windowHeight(windowHeight) {};
 
-		unsigned int getWindowWidth() const { return m_windowWidth; }
-		unsigned int getWindowHeight() const { return m_windowHeight; }
+		inline unsigned int getWindowWidth() const { return m_windowWidth; }
+		inline unsigned int getWindowHeight() const { return m_windowHeight; }
 
 		virtual std::string toString() const override {
 			std::stringstream ss;

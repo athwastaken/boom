@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\TheCherno\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -98,7 +98,7 @@
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\TheCherno\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -123,7 +123,7 @@
       <PrecompiledHeaderFile>bmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;BM_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\TheCherno\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -154,16 +154,27 @@
     <ClInclude Include="src\boomEngine\core\layerStack.h" />
     <ClInclude Include="src\boomEngine\core\log.h" />
     <ClInclude Include="src\boomEngine\core\mouseCodes.h" />
+    <ClInclude Include="src\boomEngine\core\timestep.h" />
     <ClInclude Include="src\boomEngine\core\window.h" />
+    <ClInclude Include="src\boomEngine\draw\buffer.h" />
+    <ClInclude Include="src\boomEngine\draw\camera.h" />
     <ClInclude Include="src\boomEngine\draw\context.h" />
+    <ClInclude Include="src\boomEngine\draw\draw.h" />
+    <ClInclude Include="src\boomEngine\draw\drawAPI.h" />
+    <ClInclude Include="src\boomEngine\draw\drawCommand.h" />
+    <ClInclude Include="src\boomEngine\draw\shader.h" />
+    <ClInclude Include="src\boomEngine\draw\vertexArray.h" />
     <ClInclude Include="src\boomEngine\events\appEvent.h" />
     <ClInclude Include="src\boomEngine\events\eventClass.h" />
     <ClInclude Include="src\boomEngine\events\keyEvent.h" />
     <ClInclude Include="src\boomEngine\events\mouseEvent.h" />
     <ClInclude Include="src\boomEngine\imgui\ImGuiLayer.h" />
-    <ClInclude Include="src\platform\opengl\openGLContext.h" />
-    <ClInclude Include="src\platform\windows\windowsInput.h" />
-    <ClInclude Include="src\platform\windows\windowsWindow.h" />
+    <ClInclude Include="src\platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\platform\OpenGL\OpenGLDrawAPI.h" />
+    <ClInclude Include="src\platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bmpch.cpp">
@@ -173,11 +184,21 @@
     <ClCompile Include="src\boomEngine\core\layer.cpp" />
     <ClCompile Include="src\boomEngine\core\layerStack.cpp" />
     <ClCompile Include="src\boomEngine\core\log.cpp" />
+    <ClCompile Include="src\boomEngine\draw\buffer.cpp" />
+    <ClCompile Include="src\boomEngine\draw\camera.cpp" />
+    <ClCompile Include="src\boomEngine\draw\draw.cpp" />
+    <ClCompile Include="src\boomEngine\draw\drawAPI.cpp" />
+    <ClCompile Include="src\boomEngine\draw\drawCommand.cpp" />
+    <ClCompile Include="src\boomEngine\draw\shader.cpp" />
+    <ClCompile Include="src\boomEngine\draw\vertexArray.cpp" />
     <ClCompile Include="src\boomEngine\imgui\ImGuiBuild.cpp" />
     <ClCompile Include="src\boomEngine\imgui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\platform\opengl\openGLContext.cpp" />
-    <ClCompile Include="src\platform\windows\windowsInput.cpp" />
-    <ClCompile Include="src\platform\windows\windowsWindow.cpp" />
+    <ClCompile Include="src\platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\platform\OpenGL\OpenGLDrawAPI.cpp" />
+    <ClCompile Include="src\platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
@@ -186,7 +207,7 @@
     <ProjectReference Include="vendor\Glad\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
     </ProjectReference>
-    <ProjectReference Include="vendor\ImGui\ImGui.vcxproj">
+    <ProjectReference Include="vendor\TheCherno\ImGui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>

@@ -3218,8 +3218,8 @@ typedef void (APIENTRYP PFNGLTEXTUREVIEWPROC)(GLuint texture, GLenum target, GLu
 GLAPI PFNGLTEXTUREVIEWPROC glad_glTextureView;
 #define glTextureView glad_glTextureView
 typedef void (APIENTRYP PFNGLBINDVERTEXBUFFERPROC)(GLuint bindingindex, GLuint buffer, GLintptr offset, GLsizei stride);
-GLAPI PFNGLBINDVERTEXBUFFERPROC glad_glBindVertexBuffer;
-#define glBindVertexBuffer glad_glBindVertexBuffer
+GLAPI PFNGLBINDVERTEXBUFFERPROC glad_glBindvertexBuffer;
+#define glBindvertexBuffer glad_glBindvertexBuffer
 typedef void (APIENTRYP PFNGLVERTEXATTRIBFORMATPROC)(GLuint attribindex, GLint size, GLenum type, GLboolean normalized, GLuint relativeoffset);
 GLAPI PFNGLVERTEXATTRIBFORMATPROC glad_glVertexAttribFormat;
 #define glVertexAttribFormat glad_glVertexAttribFormat
@@ -3297,8 +3297,8 @@ typedef void (APIENTRYP PFNGLBINDIMAGETEXTURESPROC)(GLuint first, GLsizei count,
 GLAPI PFNGLBINDIMAGETEXTURESPROC glad_glBindImageTextures;
 #define glBindImageTextures glad_glBindImageTextures
 typedef void (APIENTRYP PFNGLBINDVERTEXBUFFERSPROC)(GLuint first, GLsizei count, const GLuint *buffers, const GLintptr *offsets, const GLsizei *strides);
-GLAPI PFNGLBINDVERTEXBUFFERSPROC glad_glBindVertexBuffers;
-#define glBindVertexBuffers glad_glBindVertexBuffers
+GLAPI PFNGLBINDVERTEXBUFFERSPROC glad_glBindvertexBuffers;
+#define glBindvertexBuffers glad_glBindvertexBuffers
 #endif
 #ifndef GL_VERSION_4_5
 #define GL_VERSION_4_5 1
@@ -3547,11 +3547,11 @@ typedef void (APIENTRYP PFNGLVERTEXARRAYELEMENTBUFFERPROC)(GLuint vaobj, GLuint 
 GLAPI PFNGLVERTEXARRAYELEMENTBUFFERPROC glad_glVertexArrayElementBuffer;
 #define glVertexArrayElementBuffer glad_glVertexArrayElementBuffer
 typedef void (APIENTRYP PFNGLVERTEXARRAYVERTEXBUFFERPROC)(GLuint vaobj, GLuint bindingindex, GLuint buffer, GLintptr offset, GLsizei stride);
-GLAPI PFNGLVERTEXARRAYVERTEXBUFFERPROC glad_glVertexArrayVertexBuffer;
-#define glVertexArrayVertexBuffer glad_glVertexArrayVertexBuffer
+GLAPI PFNGLVERTEXARRAYVERTEXBUFFERPROC glad_glVertexArrayvertexBuffer;
+#define glVertexArrayvertexBuffer glad_glVertexArrayvertexBuffer
 typedef void (APIENTRYP PFNGLVERTEXARRAYVERTEXBUFFERSPROC)(GLuint vaobj, GLuint first, GLsizei count, const GLuint *buffers, const GLintptr *offsets, const GLsizei *strides);
-GLAPI PFNGLVERTEXARRAYVERTEXBUFFERSPROC glad_glVertexArrayVertexBuffers;
-#define glVertexArrayVertexBuffers glad_glVertexArrayVertexBuffers
+GLAPI PFNGLVERTEXARRAYVERTEXBUFFERSPROC glad_glVertexArrayvertexBuffers;
+#define glVertexArrayvertexBuffers glad_glVertexArrayvertexBuffers
 typedef void (APIENTRYP PFNGLVERTEXARRAYATTRIBBINDINGPROC)(GLuint vaobj, GLuint attribindex, GLuint bindingindex);
 GLAPI PFNGLVERTEXARRAYATTRIBBINDINGPROC glad_glVertexArrayAttribBinding;
 #define glVertexArrayAttribBinding glad_glVertexArrayAttribBinding

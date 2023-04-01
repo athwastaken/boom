@@ -19,3 +19,6 @@
 [submodule "boomEngine/vendor/ImGui"]
 	path = boomEngine/vendor/ImGui
 	url = https://github.com/ocornut/imgui
+[submodule "boomEngine/vendor/TheCherno/ImGui"]
+	path = boomEngine/vendor/TheCherno/ImGui
+	url = https://github.com/TheCherno/imgui/tree/3cf61f67de73153e29e0c26f23d80edbaf120a3d

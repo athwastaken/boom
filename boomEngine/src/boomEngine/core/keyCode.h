@@ -2,7 +2,7 @@
 
 	// from glfw3.h
 
-	/* Printable keys */
+	/* printable keys */
 	#define BM_KEY_SPACE              32
 	#define BM_KEY_APOSTROPHE         39  /* ' */
 	#define BM_KEY_COMMA              44  /* , */
@@ -54,7 +54,7 @@
 	#define BM_KEY_WORLD_1            161 /* non-US #1 */
 	#define BM_KEY_WORLD_2            162 /* non-US #2 */
 
-	/* Function keys */
+	/* function keys */
 	#define BM_KEY_ESCAPE             256
 	#define BM_KEY_ENTER              257
 	#define BM_KEY_TAB                258

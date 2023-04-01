@@ -1,5 +1,5 @@
 #include "bmpch.h"
-#include "windowsInput.h"
+#include "WindowsInput.h"
 
 #include "boomEngine/core/app.h"
 #include <GLFW/glfw3.h>

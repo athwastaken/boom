@@ -5,9 +5,9 @@
 struct GLFWwindow;
 
 namespace bm {
-	class openGLContext : public draw::context {
+	class OpenGLContext : public draw::context {
 	public:
-		openGLContext(GLFWwindow* windowHandle);
+		OpenGLContext(GLFWwindow* windowHandle);
 
 		virtual void init() override;
 		virtual void swapBuffers() override;

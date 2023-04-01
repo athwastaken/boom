@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;BM_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\boomEngine\src;..\boomEngine\vendor\spdlog\include;..\boomEngine\vendor\GLFW\include;..\boomEngine\vendor\Glad\include;..\boomEngine\vendor\ImGui;..\boomEngine\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\boomEngine\src;..\boomEngine\vendor\spdlog\include;..\boomEngine\vendor\GLFW\include;..\boomEngine\vendor\Glad\include;..\boomEngine\vendor\TheCherno\ImGui;..\boomEngine\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -96,7 +96,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;BM_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\boomEngine\src;..\boomEngine\vendor\spdlog\include;..\boomEngine\vendor\GLFW\include;..\boomEngine\vendor\Glad\include;..\boomEngine\vendor\ImGui;..\boomEngine\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\boomEngine\src;..\boomEngine\vendor\spdlog\include;..\boomEngine\vendor\GLFW\include;..\boomEngine\vendor\Glad\include;..\boomEngine\vendor\TheCherno\ImGui;..\boomEngine\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -117,7 +117,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BM_PLATFORM_WINDOWS;BM_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\boomEngine\src;..\boomEngine\vendor\spdlog\include;..\boomEngine\vendor\GLFW\include;..\boomEngine\vendor\Glad\include;..\boomEngine\vendor\ImGui;..\boomEngine\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\boomEngine\src;..\boomEngine\vendor\spdlog\include;..\boomEngine\vendor\GLFW\include;..\boomEngine\vendor\Glad\include;..\boomEngine\vendor\TheCherno\ImGui;..\boomEngine\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>

@@ -3,21 +3,21 @@
 #include "bmpch.h"
 
 #include "base.h"
-#include "spdlog/spdlog.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
-#include "spdlog/fmt/ostr.h"
+
+#include <spdlog/spdlog.h>
+#include <spdlog/fmt/ostr.h>
 
 namespace bm {
 	class log {
 	public:
 		static void init();
 
-		static ref<spdlog::logger>& getCoreLogger() { return s_getCoreLogger; }
-		static ref<spdlog::logger>& getClientLogger() { return s_getClientLogger; }
+		inline static ref<spdlog::logger>& getCoreLogger() { return s_coreLogger; }
+		inline static ref<spdlog::logger>& getClientLogger() { return s_clientLogger; }
 		
 	private:
-		static ref<spdlog::logger> s_getCoreLogger;
-		static ref<spdlog::logger> s_getClientLogger;
+		static ref<spdlog::logger> s_coreLogger;
+		static ref<spdlog::logger> s_clientLogger;
 	};
 }
 

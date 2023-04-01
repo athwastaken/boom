@@ -1,12 +1,11 @@
 #include "bmpch.h"
-
-#include "windowsWindow.h"
+#include "WindowsWindow.h"
 
 #include "boomEngine/events/appEvent.h"
 #include "boomEngine/events/keyEvent.h"
 #include "boomEngine/events/mouseEvent.h"
 
-#include "platform/opengl/openGLContext.h"
+#include "platform/opengl/OpenGLContext.h"
 
 namespace bm {
 	static bool s_glfwInitialized = false;
@@ -44,7 +43,7 @@ namespace bm {
 
 		m_window = glfwCreateWindow((int)props.width, (int)props.height, props.title.c_str(), nullptr, nullptr);
 
-		m_context = new openGLContext(m_window);
+		m_context = new OpenGLContext(m_window);
 
 		m_context->init();
 

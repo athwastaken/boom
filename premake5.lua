@@ -15,13 +15,13 @@ workspace "boom"
 	includedir["GLFW"] = "boomEngine/vendor/GLFW/include/"
 	includedir["Glad"] = "boomEngine/vendor/Glad/include/"
 	includedir["spdlog"] = "boomEngine/vendor/spdlog/include/"
-	includedir["ImGui"] = "boomEngine/vendor/ImGui/"
+	includedir["ImGui"] = "boomEngine/vendor/TheCherno/ImGui"
 	includedir["glm"] = "boomEngine/vendor/glm/"
 
 	group "dependencies"
 		include "boomEngine/vendor/GLFW/"
 		include "boomEngine/vendor/Glad/"
-		include "boomEngine/vendor/ImGui/"
+		include "boomEngine/vendor/TheCherno/ImGui/"
 	group ""
 
 
